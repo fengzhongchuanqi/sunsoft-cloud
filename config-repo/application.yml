@@ -1,0 +1,39 @@
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+spring:
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+        instance-id: ${spring.application.name}:${server.port}:${random.value}
+      host: localhost
+      port: 8500
+  rabbitmq:
+    host: rabbitmq
+  sleuth:
+    sampler:
+      percentage: 1
+    integration:
+      enabled: false
+    scheduled:
+      skip-pattern: "^org.*HystrixStreamTask$"
+
+authserver:
+  hostname: auth-service
+  port: 5000
+  contextPath: /uaa
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://${authserver.hostname}:${authserver.port}${authserver.contextPath}/current
