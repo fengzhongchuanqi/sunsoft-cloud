@@ -19,7 +19,7 @@ spring:
       host: localhost
       port: 8500
   rabbitmq:
-    host: rabbitmq
+    host: localhost
   sleuth:
     sampler:
       percentage: 1
