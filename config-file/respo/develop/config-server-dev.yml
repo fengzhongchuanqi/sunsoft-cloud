@@ -10,4 +10,4 @@ server:
 spring:
   cloud:
     zookeeper:
-      connect-string: localhost:2181
+      connect-string: 127.0.0.1:2181
