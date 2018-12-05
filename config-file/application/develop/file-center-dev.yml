@@ -28,7 +28,7 @@ spring:
   # 配置zookeeper地址
   cloud:
     zookeeper:
-      connect-string: 127.0.0.1:2181
+      connect-string: localhost:2181
   datasource:
     dynamic:
       enable: true

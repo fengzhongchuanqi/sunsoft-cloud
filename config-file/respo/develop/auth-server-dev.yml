@@ -20,7 +20,7 @@ spring:
   # 配置zookeeper地址
   cloud:
     zookeeper:
-      connect-string: 127.0.0.1:2181
+      connect-string: localhost:2181
   session:
     store-type: redis  
   datasource:
@@ -88,7 +88,7 @@ spring:
 ################### mysq end ##########################
   redis:
 ################### redis 单机版 start ########################## 
-    host: 127.0.0.1
+    host: root
     port: 6379
     timeout: 3000
     database: 0
