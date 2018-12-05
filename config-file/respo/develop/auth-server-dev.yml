@@ -92,7 +92,6 @@ spring:
     port: 6379
     timeout: 3000
     database: 0
-    password: redis
   zipkin:
     base-url: http://127.0.0.1:11008
 ################### redis 单机版 end ##########################   
