@@ -117,8 +117,8 @@ security:
         type: redis
 
 permit:
-  http_urls:  /area/** 
-  oauth_urls: /area/**
+  http_urls:  /area/**,/test/**
+  oauth_urls: /area/**,/test/**
 
 #设置最大超时时间
 ribbon:  
