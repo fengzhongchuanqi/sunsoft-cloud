@@ -109,8 +109,8 @@ security:
 
 
 permit:
-  http_urls:  /test163/** , /api-auth/** , /health ,/doc.html,/test111 ,/api-user/users-anon/login ,/user-center/users-anon/login,/document.html,**/v2/api-docs
-  oauth_urls: /test163/** , /api-auth/** , /doc.html ,/test111 ,/api-user/users-anon/login,/user-center/users-anon/login,/document.html,**/v2/api-docs
+  http_urls:  /test163/** , /api-auth/** ,/api-zto/** ,/api-sf/** , /api-bs/** , /health ,/doc.html,/test111 ,/api-user/users-anon/login ,/user-center/users-anon/login,/document.html,**/v2/api-docs
+  oauth_urls: /test163/** , /api-auth/** ,/api-zto/** ,/api-sf/** , /api-bs/** , /doc.html ,/test111 ,/api-user/users-anon/login,/user-center/users-anon/login,/document.html,**/v2/api-docs
   
 
  
@@ -178,10 +178,20 @@ zuul:
       path: /api-sms/**
       service-id: sms-center  
       strip-prefix: true
-    eureka:
+    zto:
       sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods
-      path: /api-eureka/**
-      service-id: eureka-server
+      path: /api-zto/**
+      service-id: tpl-zto-service
+      strip-prefix: true
+    sf:
+      sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods
+      path: /api-sf/**
+      service-id: tpl-sf-service
+      strip-prefix: true
+    bs:
+      sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods
+      path: /api-bs/**
+      service-id: tpl-bs-service
       strip-prefix: true
   ssl-hostname-validation-enabled: false
 
@@ -195,10 +205,6 @@ zuul:
 #      name: auth-server
 #      api-docs-path: /auth/v2/api-docs
 #      swagger-version: 2.0
-#    client:
-#      name: eureka-client     
-#      api-docs-path: /client/v2/api-docs 
-#      swagger-version: 2.0      
 #    auth_client:
 #      name: auth-client
 #      api-docs-path: /auth-client/v2/api-docs
